@@ -1,0 +1,50 @@
+!!!XML
+!!!1.1
+%html{"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "http://www.blueprintcss.org/blueprint/screen.css"}
+    
+    :javascript
+      $(function() {
+        $('#submit').click(function(){
+          var url = '/lwes';
+          console.log($('#content-type').val());
+          
+          $.ajax({
+            type        : 'POST',
+            contentType : $('#content-type').val(),
+            data        : $('#request-body').val(),
+            success     : function(data){
+              $('#result').html(data);
+            },
+            error       : function(xhr, textStatus, errorThrown) {
+              console.log(xhr, textStatus, errorThrown);
+              $('#result').html(xhr.responseText);
+            }
+          });
+          return false;
+        });
+      });
+  %body
+    .container
+      %form{:action => '#', :method => 'GET'}
+        %fieldset
+          %legend Test Your LWES Request
+          %p
+            Content Type
+          %p
+            %select#content-type
+              %option{:value => "application/json"} JSON
+              %option{:value => "text/xml"} XML
+              %option{:value => "application/x-plist"} Plist
+
+          %p
+            Request Body
+          %p
+            %textarea#request-body
+
+          %p
+            %input#submit{:value => "Submit", :type => "submit"}
+      
+      #result

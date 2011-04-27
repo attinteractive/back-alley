@@ -1,6 +1,6 @@
 = back-alley
 
-Description goes here.
+Back Alley is an LWES HTTP proxy that traffics LWES Event from HTTP to UDP. Back Alley helps you to send your LWES events to UDP endpoints, however, the design goal is to be a pure proxy, and it doesn't check the validity of format against LWES event schema. Thus the Back Alley doesn't care about what you traffic.
 
 == Contributing to back-alley
  

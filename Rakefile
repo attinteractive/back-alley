@@ -11,18 +11,13 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "back-alley"
   gem.homepage = "http://github.com/aq1018/back-alley"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Restful LWES proxy server that traffics LWES events from HTTP to UDP.}
+  gem.description = %Q{Back Alley is an LWES HTTP proxy that traffics LWES Event from HTTP to UDP. Back Alley helps you to send your LWES events to UDP endpoints, however, the design goal is to be a pure proxy, and it doesn't check the validity of format against LWES event schema. Thus the Back Alley doesn't care about what you traffic.}
   gem.email = "aqian@attinteractive.com"
   gem.authors = ["Aaron Qian"]
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
